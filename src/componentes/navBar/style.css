@@ -1,0 +1,209 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  padding: 0 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  z-index: 1000; /* ajusta el z-index para que esté por encima de los elementos con posición absoluta */
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+}
+.navbar__right{
+  margin-left: -12vh;
+
+}
+
+.navbar__dropdown {
+  position: relative;
+}
+
+.navbar__dropdown:hover .dropdown-menu {
+  display: block;
+}
+a{
+  text-decoration: none;
+  color: #000000;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  min-width: 200px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.781);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.dropdown-item img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__links li {
+  margin-right: 20px;
+}
+
+.navbar__links li:last-child {
+  margin-right: 0;
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.navbar__cart {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__cart-total {
+  margin-left: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.iphone__dropdown {
+  display: flex;
+  color: #0a0a0a;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.774);
+  padding: 10px;
+  z-index: 1000; /* ajusta el z-index para que esté por encima de los elementos con posición absoluta */
+}
+
+.iphone__dropdown img {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+}
+.iphone__dropdown img:hover {
+  transform: scale(1.1);
+}
+
+.navbar__dropdown-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 60px;
+}
+.item__total{
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  top: 1vh;
+  right: 1vh;
+}
+
+.navbar__menu-icon {
+  display: none;
+  }
+  
+  @media (max-width: 768px) {
+  .navbar {
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .navbar__left {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .navbar__right {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  
+  .navbar__links {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  }
+  
+  .navbar__links--hidden {
+  display: none;
+  }
+  
+  .navbar__menu-icon {
+  display: block;
+
+  }
+  
+
+  .navbar__dropdown {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  }
+  
+  .iphone__dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .iphone__dropdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  }
+  
+  .iphone__dropdown a img {
+  width: 100%;
+  max-width: 150px;
+  object-fit: contain;
+  }
+  
+  .iphone__dropdown a p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  }
+  
+  }

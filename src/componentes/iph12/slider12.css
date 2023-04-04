@@ -1,0 +1,315 @@
+    .comprarIphone{
+        background-color: white;
+        color: black;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 70px;
+        margin-bottom: -7%;
+        font-size: 40px;
+    }
+    
+    
+    .contenedor-principal {
+        display: flex;
+        height: 100vh;
+        background-color: #ffffff ;
+    }
+    
+    .slider {
+        width: 60%;
+        margin-left: 5%;
+        margin-top: 10%;
+        height: 65%;
+    }
+    
+    .swiper-slide img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .colors {
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        display: flex;
+        flex-direction: column;
+    }
+    .elijeColor{
+        margin-top: 10%;
+        margin-left: 15%;
+        font-size: 30px;
+    }
+    .elijeColor h5{
+        font-weight: lighter;
+        margin-top: 5px;
+    }
+    .card1 {
+        position: absolute;
+        top: 27%;
+        right: 10%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+    }
+    
+    .color {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .dot {
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        margin-right: 10px;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    
+    .dot.selected {
+        background-color: black;
+    }  
+    .dot.Verde {
+        background-color: #DCF1D8;
+    }
+    
+    .dot.Azul {
+        background-color: #234E76;
+    }
+    
+    .dot.Product-Red {
+        background-color: #FA6765;
+    }
+    .dot.Violeta {
+        background-color: #CDC5F9;
+    }
+    .dot.Blanco {
+        background-color: #FEFCFA;
+    }
+    .dot.Negro {
+        background-color: #312D35;
+    }
+    @media (max-width: 768px) {
+        .slider {
+        width: 90%;
+        margin-left: 5%;
+        }
+    
+        .card {
+        top: auto;
+        bottom: 10%;
+        right: 5%;
+        }
+    }
+    
+
+
+    /* almacenamiento */
+.padree{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+    .almacenamiento{
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        margin-top: -32%;
+        margin-right: 8.5%;
+        font-size: 20px;        
+    }
+    .card2{
+        border: solid 1px blue;
+        border-radius: 15px;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 30px;
+        margin: 10px 0px;
+        align-items: center;
+    }
+
+    .card2 {
+        width: 10em;
+        position: relative;
+        height: 3.5em;
+        border: 3px ridge #149CEA;
+        outline: none;
+        background-color: transparent;
+        color: rgb(2, 2, 2);
+        transition: 1s;
+        border-radius: 0.3em;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+      .card2::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        background-color: #ffffff;
+        transition: 0.5s;
+        transform-origin: center;
+      }
+      
+      .card2::before {
+        content: "";
+        transform-origin: center;
+        position: absolute;
+        top: 80%;
+        left: 3%;
+        width: 95%;
+        height: 40%;
+        background-color: #ffffff;
+        transition: 0.5s;
+      }
+      
+      .card2:hover::before, .card2:hover::after {
+        transform: scale(0)
+      }
+      
+      .card2:hover {
+        box-shadow: inset 0px 0px 25px #1479EA;
+      }
+
+      .card2.clicked {
+        box-shadow: inset 0px 0px 25px #1479EA;
+      }
+      .card2.clicked::before, .card2.clicked::after {
+        transform: scale(0)
+      }
+      
+      @media only screen and (max-width: 768px) {
+        .comprarIphone {
+        padding-top: 50px;
+        margin-bottom: -10%;
+        font-size: 30px;
+        }
+        .contenedor-principal {
+        flex-direction: column;
+        height: auto;
+        }
+        .slider {
+        width: 90%;
+        margin: 5% auto;
+        height: 50%;
+        }
+        .colors {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        }
+        .elijeColor {
+        margin-top: 5%;
+        margin-left: 5%;
+        font-size: 20px;
+        }
+        .card1 {
+        position: static;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        padding: 10px;
+        }
+        .padree {
+        flex-direction: column;
+        align-items: center;
+        }
+        .almacenamiento {
+        margin-top: 5%;
+        margin-right: 0%;
+        font-size: 16px;
+        }
+        .card2 {
+        width: 100%;
+        height: auto;
+        margin: 5% auto;
+        }
+        }
+
+        /* Pantallas de tamaño intermedio (notebooks) */
+@media only screen and (max-width: 1024px) {
+
+    .comprarIphone {
+      font-size: 30px;
+      margin-bottom: -10%;
+      padding-top: 50px;
+    }
+  
+    .contenedor-principal {
+      flex-direction: column;
+    }
+  
+    .slider {
+      width: 80%;
+      margin: 10% auto 5%;
+      height: 50%;
+    }
+  
+    .colors {
+      top: 5%;
+      right: 5%;
+      flex-direction: row;
+      margin-top: 20px;
+    }
+  
+    .elijeColor {
+      margin-top: 0;
+      margin-left: 9%;
+      font-size: 20px;
+    }
+  
+    .elijeColor h5 {
+      font-size: 16px;
+      margin-top: 2px;
+    }
+  
+    .card1 {
+      top: 50%;
+      right: 5%;
+      padding: 10px;
+    }
+  
+    .card2 {
+      font-size: 14px;
+      margin: 5px 0px;
+    }
+  }
+  
+  @media screen and (max-width: 1290px) {
+    .comprarIphone {
+      font-size: 30px;
+    }
+    .slider {
+      width: 60%;
+      margin-left: 2%;
+    }
+    .colors {
+      top: 20%;
+      right: 2%;
+    }
+    .elijeColor{
+        margin-top: 10%;
+        margin-left: 13%;
+        font-size: 30px;
+    }
+    .card1 {
+      top: 35%;
+      right: 5%;
+    }
+    .almacenamiento {
+      margin-right: 5%;
+    }
+  }
+  

@@ -1,0 +1,38 @@
+.cuerpoIph14{
+    text-align: center;
+    color: black;
+    padding-top: 100px;
+    background-color: white;
+}
+/* muestra de img */
+
+
+
+
+.tituloIph14{
+    color: black;
+    font-size: 50px;
+    text-align: start;
+    margin-left: 250px;
+    width: 390px;
+    font-weight:normal;
+}
+.tercerParte{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    width: 500px;
+    gap: 150px;
+}
+.descripcionPlus{
+    width: 190px;
+    margin-top:120px;
+}
+.cuartaParte{
+    width: 500px;
+    margin: 20px auto;
+}
+.resolucion{
+    width: 240px;
+    margin-bottom: 40px;
+}

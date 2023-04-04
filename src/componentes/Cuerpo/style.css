@@ -1,0 +1,126 @@
+
+.Logo{
+    width: 100%;
+  }
+/*
+  .Logo2{
+    width: 50%;
+  }
+  #currentImage{
+    width: 50%;
+    margin: 0 auto;
+  }
+  .cambioColor{
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .cambioColor a {
+    background-color: transparent;
+    border: none;
+    color: rgba(156, 154, 154, 0.705);
+    font-size: 40px;
+    margin-right: 10px;
+    outline: none;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .cambioColor a:hover {
+    cursor: pointer;
+    color: rgba(238, 238, 238, 0.8);
+  }
+
+  .cambioColor a.active {
+    color: rgb(248, 241, 241);
+  }
+  #imageContainer{
+    display: flex;
+    justify-content: center;
+  } */
+  .cambioColor {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 4.7%;
+
+  }
+  
+  .cambioColor a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cambioColor a.active {
+    border: 2px solid #fff;
+  }
+  
+  #imageContainer {
+    text-align: center;
+  }
+  
+  #currentImage {
+    max-width: 100%;
+  }
+
+  .cambioColor a h2 {
+    font-size: 20px;
+    color: white;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    font-weight: bolder;
+  }
+  h2 {
+    position: absolute;
+    top: 10%;
+    right: 100px;
+    transform: translate(-50%, -50%);
+
+  }
+  
+  /* ---inicio de la pagina--- */
+  .Propaganda {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .Nombre {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+    margin-top: 10%;
+  }
+
+  .fadeOut {
+    transition: opacity 1s ease-out;
+  }
+  .Logo{
+    position: absolute;
+  }
+  .Propaganda1{
+    margin-top: 135vh;
+  }
+
+  /* -----cambio de imagenes------ */
+  .fade {
+    animation: fade 2.5s;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
