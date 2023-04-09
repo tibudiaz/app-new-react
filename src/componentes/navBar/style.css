@@ -207,3 +207,6 @@ a{
   }
   
   }
+  .users{
+    display: flex;
+  }

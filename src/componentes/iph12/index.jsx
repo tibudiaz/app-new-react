@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 // config firebase
 
-import firebase from '../../firebaseConfig';
+import { firebase } from '../../firebaseConfig';
+
 
 
 

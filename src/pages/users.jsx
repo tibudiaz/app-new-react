@@ -1,21 +1,18 @@
 import React from "react";
 import { Navbar } from "../componentes/navBar";
 import './style.css';
-import {Catalog} from "../componentes/Catalogo";
-import Banner from "../componentes/banner";
+import  Login  from "../componentes/login";
 
 
-export const Home = () => {
+export const Users = () => {
   return (
       <div>
       <section className="Home">
         <Navbar />
       </section>
-      <Banner />
       <div className="inicio">
-
+      <Login />
       </div>
-      <Catalog />
       </div>
   );
 }

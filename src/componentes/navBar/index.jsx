@@ -69,7 +69,10 @@ export const Navbar = () => {
           <box-icon color="white" name="menu"></box-icon>
         </button>
       </div>
-      <div>
+      <div className='users'>
+          <Link to='/users'>
+          <box-icon color="white" name='user'></box-icon>
+          </Link>
       <div className="cart" onClick={() => setCartOpen(!cartOpen)}>
           <box-icon color="white" name="cart"></box-icon>
           <span className="item__total">{cartCount}</span>
