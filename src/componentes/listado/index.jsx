@@ -13,6 +13,7 @@ export const ProductList = () => {
         const productsSnapshot = await productsRef.get();
         const productsData = productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setProducts(productsData);
+        console.log(productsData); // Agregamos un console.log para depurar
       } catch (error) {
         console.error(error);
       }
@@ -33,15 +34,26 @@ export const ProductList = () => {
     }
   };
 
+  const checkFolderExistence = async (productId) => {
+    const storageRef = firebase.storage().ref(`productos/${productId}`);
+    const folderExists = await storageRef.listAll().then((res) => {
+      const folders = res.prefixes.map((folder) => folder.name);
+      return folders.includes(productId);
+    }).catch(() => false);
+    console.log(`La carpeta productos/${productId} existe: ${folderExists}`); // Agregamos un console.log para depurar
+    return folderExists;
+  };
+
   return (
     <div>
       <h2>Lista de productos</h2>
       <ul>
         {products.map(product => (
-          <li key={product.id}>
+          <li key={product.id} style={{ color: checkFolderExistence(product.id) ? 'green' : 'red' }}>
             <span>{product.id} - </span>
             <span>{product.name} - </span>
             <span>${product.price} - </span>
+            <span>{checkFolderExistence(product.id) ? 'TIENE FOTO' : 'NO TIENE FOTO'}</span>
             <button className='btnasd' onClick={() => handleDelete(product.id)}>Eliminar</button>
           </li>
         ))}
@@ -49,5 +61,3 @@ export const ProductList = () => {
     </div>
   );
 };
-
-

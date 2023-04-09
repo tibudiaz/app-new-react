@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { firebase } from "../../firebaseConfig";
 import AddProductForm from "../administrador";
 import { ProductList } from "../listado";
+import { ImageUploader } from "../cargarimg";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,6 +34,7 @@ function Login() {
         <>
     <AddProductForm />
     <ProductList />
+    <ImageUploader />
   </>
       ) : (
         <form onSubmit={handleLogin}>
