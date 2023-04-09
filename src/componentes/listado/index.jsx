@@ -42,7 +42,7 @@ export const ProductList = () => {
             <span>{product.id} - </span>
             <span>{product.name} - </span>
             <span>${product.price} - </span>
-            <button onClick={() => handleDelete(product.id)}>Eliminar</button>
+            <button className='btnasd' onClick={() => handleDelete(product.id)}>Eliminar</button>
           </li>
         ))}
       </ul>
