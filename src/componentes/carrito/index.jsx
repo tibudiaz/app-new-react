@@ -1,67 +1,39 @@
-import React, { useState, useEffect } from "react";
-import './style.css'
+import React, { useState, useEffect } from 'react';
+import "./style.css"
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("cart")) || [];
-    setCartItems(items.reduce((acc, item) => {
-      const existingItemIndex = acc.findIndex(cartItem => cartItem.productName === item.productName && cartItem.price === item.price);
-      if (existingItemIndex !== -1) {
-        acc[existingItemIndex].quantity += 1;
-      } else {
-        acc.push({...item, quantity: 1});
+    const items = JSON.parse(localStorage.getItem('cart')) || [];
+    const processedItems = items.map(item => {
+      return {
+        ...item,
+        price: parseFloat(item.price.replace("$", ""))
       }
-      return acc;
-    }, []));
+    }).filter(item => item.productName && item.price && item.quantity);
+    setCartItems(processedItems);
   }, []);
+
+  function removeItem(index) {
+    const updatedCart = [...cartItems];
+    updatedCart.splice(index, 1);
+    setCartItems(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  }
+  function formatPrice(price) {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 3 }).format(price);
+  }
 
   useEffect(() => {
-    window.addEventListener("storage", handleStorageUpdate);
-    return () => {
-      window.removeEventListener("storage", handleStorageUpdate);
-    };
-  }, []);
-
-  const handleStorageUpdate = () => {
-    const items = JSON.parse(localStorage.getItem("cart")) || [];
-    setCartItems(items.reduce((acc, item) => {
-      const existingItemIndex = acc.findIndex(cartItem => cartItem.productName === item.productName && cartItem.price === item.price);
-      if (existingItemIndex !== -1) {
-        acc[existingItemIndex].quantity += 1;
-      } else {
-        acc.push({...item, quantity: 1});
-      }
-      return acc;
-    }, []));
-  };
-
-  const updateItemQuantity = (index, quantity) => {
-    if (quantity < 1) {
-      return;
-    }
-    const updatedCartItems = [...cartItems];
-    updatedCartItems[index].quantity = quantity;
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
-  };
-
-  const removeItem = (index) => {
-    const updatedCartItems = [...cartItems];
-    updatedCartItems.splice(index, 1);
-    setCartItems(updatedCartItems);
-    localStorage.setItem("cart", JSON.stringify(updatedCartItems));
-  };
-
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-
+    const newTotalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    setTotalPrice(formatPrice(newTotalPrice));
+  }, [cartItems]);
+  
   return (
     <div className="cart__container">
-      <p className="titulo__carrito">Carrito de compras</p>
+<p className="titulo__carrito">Carrito de compras ({cartItems.length} {cartItems.length > 1 ? 'productos' : 'producto'})</p>
       {cartItems.length === 0 ? (
         <p className="objetos__cart">No hay artículos en el carrito</p>
       ) : (
@@ -69,19 +41,17 @@ export const Cart = () => {
           {cartItems.map((item, index) => (
             <div key={index} className="cart-item">
               <p>{item.productName}</p>
-              <p>{item.price.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</p>
+              <p>Precio: ${item.price}</p>
               <div>
-                <button onClick={() => updateItemQuantity(index, item.quantity - 1)}> - </button>
-                <p>{item.quantity}</p>
-                <button onClick={() => updateItemQuantity(index, item.quantity + 1)}> + </button>
+                <p>Cantidad: {item.quantity}</p>
               </div>
               <button onClick={() => removeItem(index)}>Eliminar</button>
             </div>
           ))}
-          <p className="objetos__cart">Total: {totalPrice.toLocaleString("es-CO", { style: "currency", currency: "COP" })}</p>
+          <p className="objetos__cart">Total: {totalPrice}</p>
           <button className="btn11">Comprar</button>
         </div>
       )}
     </div>
   );
-};
+}

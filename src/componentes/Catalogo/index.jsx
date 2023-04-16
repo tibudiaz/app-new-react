@@ -148,8 +148,7 @@ export function Catalog() {
             <p className="product-description">{getBatteryInfo(product)}</p>
             <p className="product-price">{getPriceInARS(product.price)}</p>
             <div className="product-buttons">
-              <button className="buy-button">Comprar</button>
-              <Link to={`/products/${product.key}`} replace> Ver más</Link>
+              <Link  className="buy-button" to={`/products/${product.key}`} replace>Ver más</Link>
             </div>
           </div>
         </div>

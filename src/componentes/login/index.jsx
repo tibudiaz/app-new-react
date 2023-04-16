@@ -33,8 +33,8 @@ function Login() {
       {isAdmin ? (
         <>
     <AddProductForm />
-    <ProductList />
     <ImageUploader />
+    <ProductList />
   </>
       ) : (
         <form onSubmit={handleLogin}>

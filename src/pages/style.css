@@ -142,8 +142,7 @@
 .card img {
   width: 40%;
   object-fit: cover;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 15px;
   height: 100%;
 }
 
@@ -152,21 +151,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  background-color: #a7a5a5;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  width: 20%;
+  background-color: #a7a5a52c;
+  border-radius: 15px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .card-title {
   margin-bottom: 0.5rem;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .card-text {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 1.2rem;
+  text-align: start;
 }
 
 .inicio{
