@@ -1,0 +1,16 @@
+.paymentDetails {
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.total {
+  padding: 30px 0;
+}
+
+.continueButton {
+    font-size: 1.5rem;
+    border-radius: 12px;
+}

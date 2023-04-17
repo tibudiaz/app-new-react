@@ -7,7 +7,6 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
-
 // Importar módulos de Firebase Firestore
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
@@ -22,7 +21,9 @@ export const ProductDetail = () => {
   const [stock, setStock] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const [mensajeStock, setMensajeStock] = useState(null);
-
+  const Swal = require('sweetalert2');
+  
+  
 
   useEffect(() => {
     const getExchangeRate = () => {
@@ -121,7 +122,7 @@ export const ProductDetail = () => {
       productId: productId,
       quantity: cantidad,
     };
-  
+    
     const cartActual = JSON.parse(localStorage.getItem("cart")) || [];
     let found = false;
     cartActual.forEach((item) => {
@@ -130,9 +131,23 @@ export const ProductDetail = () => {
         const newQuantity = item.quantity + cantidad;
         if (newQuantity > stock) {
           setMensajeStock("No puedes agregar más productos.");
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'No se puede agregar al carrito',
+            showConfirmButton: false,
+            timer: 1500
+          })
           return;
         }
         item.quantity = newQuantity;
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Producto agregado al carrito.',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     });
     if (!found) {
@@ -141,16 +156,24 @@ export const ProductDetail = () => {
         return;
       }
       cartActual.push(productoAComprar);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Producto agregado al carrito.',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
     localStorage.setItem("cart", JSON.stringify(cartActual));
+    
   };
   
 
   
 
   if (!producto) {
-    return <div>Producto no encontrado</div>;
-  }
+    return( <div className="loader__container"><span className="loader">iMarket</span></div>
+  ) }
 
   return (
     <div>

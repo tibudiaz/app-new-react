@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./style.css"
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -30,10 +31,25 @@ export const Cart = () => {
     const newTotalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
     setTotalPrice(formatPrice(newTotalPrice));
   }, [cartItems]);
+
+  function handleCompra() {
+    const newTotalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const compra = {
+      items: cartItems.map(item => ({
+        name: item.productName,
+        price: item.price,
+        quantity: item.quantity,
+        id: item.productId
+      })),
+      total: newTotalPrice
+    };
+    localStorage.setItem('compra', JSON.stringify(compra));
+  }
+  
   
   return (
     <div className="cart__container">
-<p className="titulo__carrito">Carrito de compras ({cartItems.length} {cartItems.length > 1 ? 'productos' : 'producto'})</p>
+      <p className="titulo__carrito">Carrito de compras ({cartItems.length} {cartItems.length > 1 ? 'productos' : 'producto'})</p>
       {cartItems.length === 0 ? (
         <p className="objetos__cart">No hay artículos en el carrito</p>
       ) : (
@@ -49,7 +65,9 @@ export const Cart = () => {
             </div>
           ))}
           <p className="objetos__cart">Total: {totalPrice}</p>
-          <button className="btn11">Comprar</button>
+          <Link to="/payment">
+            <button onClick={handleCompra} className="btn11">Comprar</button>
+          </Link>
         </div>
       )}
     </div>

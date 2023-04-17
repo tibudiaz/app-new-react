@@ -44,7 +44,7 @@ export const Navbar = () => {
     <nav className="navbar">
       <div className="navbar__left">
         <Link to= "/" className="navbar__logo">
-          Apple Store RC
+          iMarket
         </Link>
       </div>
       <div className={`navbar__right ${showMenu ? "active" : ""}`}>

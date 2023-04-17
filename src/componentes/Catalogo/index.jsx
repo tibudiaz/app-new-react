@@ -59,6 +59,7 @@ export function Catalog() {
   const [products, setProducts] = useState([]);
   const [exchangeRate, setExchangeRate] = useState(0);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // nuevo estado de carga
 
   useEffect(() => {
     const unsubscribe = onSnapshot(productsCollection, (snapshot) => {
@@ -70,6 +71,7 @@ export function Catalog() {
         };
       });
       setProducts(productsArr);
+      setLoading(false); // actualizar el estado de carga
     });
   
     return () => {
@@ -126,7 +128,9 @@ export function Catalog() {
   return (
     <div className="catalogo">
       {error && <div className="error-message">{error}</div>}
-      {products.map((product) => (
+      {loading ? ( // condición de carga
+        <div className="loader__container"><span className="loader">iMarket</span></div>
+      ) : (products.map((product) => (
         <div
           className={`product-card ${
             product.estado === 'Nuevo' ? 'new-product' : 'used-product'
@@ -152,7 +156,7 @@ export function Catalog() {
             </div>
           </div>
         </div>
-      ))}
+      )))}
     </div>
   );
 }
